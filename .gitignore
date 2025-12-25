@@ -1,0 +1,11 @@
+# Godot-specific ignores
+.godot/
+*.tmp
+*.out
+*.log
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+*.csproj
+*.sln

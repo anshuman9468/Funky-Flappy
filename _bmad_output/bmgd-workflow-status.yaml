@@ -1,0 +1,79 @@
+# Workflow Status (BMGD)
+
+# This tracks progress through BMGD methodology Pre-production, Design, and Technical phases.
+# Implementation phase is tracked separately in sprint-status.yaml
+
+# STATUS DEFINITIONS:
+# ==================
+# Initial Status (before completion):
+#   - required: Must be completed to progress
+#   - optional: Can be completed but not required
+#   - recommended: Strongly suggested but not required
+#   - conditional: Required only if certain conditions met (e.g., if_narrative_focused)
+#
+# Completion Status:
+#   - {file-path}: File created/found (e.g., "docs/gdd.md")
+#   - skipped: Optional/conditional workflow that was skipped
+
+generated: "2025-12-25T14:37:20+05:30"
+project: "Flappy Bird"
+project_type: "brownfield"
+selected_track: "gamedev"
+field_type: "brownfield"
+workflow_path: "gamedev-brownfield.yaml"
+
+workflow_status:
+  - phase: 0
+    name: "Discovery (Optional)"
+    status: "optional"
+    workflows:
+      - id: "brainstorm-game"
+        status: "optional"
+        agent: "game-designer"
+        command: "brainstorm-game"
+        note: "Creative exploration for new features or improvements"
+
+  - phase: 1
+    name: "Design"
+    status: "in-progress"
+    workflows:
+      - id: "gdd"
+        status: "_bmad_output/gdd.md"
+        agent: "game-designer"
+        command: "create-gdd"
+        output: "Game Design Document for new features/systems"
+        note: "Focus on changes and additions to existing game"
+
+      - id: "narrative"
+        status: "conditional"
+        agent: "game-designer"
+        command: "narrative"
+        note: "For story-driven additions"
+
+  - phase: 2
+    name: "Technical"
+    status: "pending"
+    workflows:
+      - id: "game-architecture"
+        status: "_bmad_output/game-architecture.md"
+        agent: "game-architect"
+        command: "create-architecture"
+        output: "Architecture update document"
+        note: "Focus on integration with existing systems"
+
+      - id: "test-framework"
+        status: "recommended"
+        agent: "game-qa"
+        command: "test-framework"
+        output: "Testing framework extension"
+        note: "Extend existing tests or set up new framework"
+
+  - phase: 3
+    name: "Production"
+    status: "pending"
+    workflows:
+      - id: "sprint-planning"
+        status: "_bmad_output/sprint-status.yaml"
+        agent: "game-scrum-master"
+        command: "sprint-planning"
+        note: "Creates sprint plan - subsequent work tracked in sprint-status.yaml"

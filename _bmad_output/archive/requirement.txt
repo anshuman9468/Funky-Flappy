@@ -1,0 +1,70 @@
+PROJECT: Flappy Bird Clone (Web Game)
+
+GOAL:
+Create a simple, smooth, and responsive Flappy Bird–style 2D game that runs in the browser.
+
+GAMEPLAY REQUIREMENTS:
+- Player controls a bird that continuously falls due to gravity
+- On click / spacebar / tap, the bird jumps upward
+- Vertical pipes move from right to left
+- Player must pass through pipe gaps without collision
+- Game ends on collision with pipes or ground
+- Score increases by 1 each time the bird successfully passes a pipe pair
+
+CONTROLS:
+- Desktop: Spacebar or Mouse Click
+- Mobile: Screen Tap
+
+GAME LOGIC:
+- Gravity constantly pulls bird down
+- Jump applies upward velocity
+- Pipes spawn at fixed time intervals
+- Pipe gap height is randomized within limits
+- Collision detection between bird and pipes/ground
+- Restart option after game over
+
+VISUALS:
+- Simple 2D cartoon style
+- Background sky (light blue)
+- Bird as a circle or sprite
+- Pipes as green rectangles
+- Ground strip at bottom
+- Score displayed at top center
+
+AUDIO (OPTIONAL):
+- Jump sound
+- Score sound
+- Game over sound
+
+TECH STACK:
+- HTML5 Canvas
+- JavaScript (no external libraries)
+- CSS for layout only
+
+PERFORMANCE:
+- Smooth 60 FPS animation using requestAnimationFrame
+- Responsive canvas scaling for different screen sizes
+
+GAME STATES:
+- Start Screen (Tap to Start)
+- Playing State
+- Game Over Screen with Restart button
+
+CODE STRUCTURE:
+- Separate logic for:
+  - Bird physics
+  - Pipe generation
+  - Collision detection
+  - Rendering
+  - Game state handling
+
+DELIVERABLES:
+- index.html
+- style.css
+- script.js
+- Fully playable Flappy Bird clone
+
+CONSTRAINTS:
+- No external game engines
+- Keep code clean, modular, and commented
+- Easy to understand for beginners
