@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://testbird"]
+
+[ext_resource type="Script" path="res://src/actors/BirdTest.gd" id="1_test"]
+
+[node name="BirdTest" type="Node"]
+script = ExtResource("1_test")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxhkbys1wuo2q"]
+
+[ext_resource type="Script" path="res://src/levels/Background.gd" id="1_bg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/background.svg" id="2_sky"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ground.svg" id="3_ground"]
+[ext_resource type="Texture2D" path="res://assets/sprites/cloud.svg" id="4_cloud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/star.svg" id="5_star"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_bg")
+
+
+
+[node name="SkyLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SkyLayer"]
+texture = ExtResource("2_sky")
+centered = false
+
+[node name="StarLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="StarLayer"]
+position = Vector2(640, 360)
+amount = 50
+lifetime = 100.0
+preprocess = 100.0
+texture = ExtResource("5_star")
+emission_shape = 3
+emission_rect_extents = Vector2(640, 360)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 1.0
+color = Color(1, 1, 1, 1)
+
+[node name="CloudLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Cloud1" type="Sprite2D" parent="CloudLayer"]
+position = Vector2(100, 100)
+texture = ExtResource("4_cloud")
+
+[node name="Cloud2" type="Sprite2D" parent="CloudLayer"]
+position = Vector2(500, 150)
+texture = ExtResource("4_cloud")
+
+[node name="Cloud3" type="Sprite2D" parent="CloudLayer"]
+position = Vector2(900, 80)
+texture = ExtResource("4_cloud")
+
+[node name="GroundLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundLayer"]
+position = Vector2(0, 620)
+texture = ExtResource("3_ground")
+centered = false

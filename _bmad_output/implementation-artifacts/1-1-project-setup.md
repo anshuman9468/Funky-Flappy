@@ -1,16 +1,16 @@
-# Story 1.1: Project Setup (Godot 4.x)
+# Story 1.1: Project Setup (Godot 4.5)
 
-Status: review
+Status: done
 
 ## Story
 
 As a **Developer**,
-I want **to set up the Godot 4.x project with correct structure and export settings**,
+I want **to set up the Godot 4.5 project with correct structure and export settings**,
 so that **we have a solid foundation for development and can build for WebGL**.
 
 ## Acceptance Criteria
 
-1.  **Engine Version**: Project is initialized using Godot 4.x (Stable).
+1.  **Engine Version**: Project is initialized using Godot 4.5 (Stable).
 2.  **Project Structure**: The folder structure matches the `game-architecture.md` specification (`res://src`, `res://assets`, etc.).
 3.  **Render Settings**: Renderer set to **Compatibility** (OpenGL ES 3.0) for maximum WebGL support.
 4.  **Resolution**: Window width/height set to **480x854** (Portrait) or **1280x720** (Landscape) - *Decision: Landscape 1280x720 for Web*. Stretch mode set to `canvas_items`.
@@ -47,7 +47,7 @@ so that **we have a solid foundation for development and can build for WebGL**.
     ├── src/
     └── exports/
     ```
--   **Tech Stack**: Godot 4.x, GDScript.
+-   **Tech Stack**: Godot 4.5, GDScript.
 
 ### References
 -   [Architecture Document](file:///home/anshumandutta/Documents/Flappy%20bird/_bmad_output/game-architecture.md)

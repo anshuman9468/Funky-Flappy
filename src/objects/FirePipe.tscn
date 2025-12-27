@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://firepipe"]
+
+[ext_resource type="Script" path="res://src/objects/FirePipe.gd" id="1_firepipe"]
+[ext_resource type="Texture2D" path="res://assets/sprites/pipe.svg" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fire.svg" id="3_fire"]
+[ext_resource type="Texture2D" path="res://assets/sprites/light_texture.svg" id="4_light"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pipe"]
+size = Vector2(60, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_score"]
+size = Vector2(20, 160)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fire"]
+radius = 15.0
+height = 60.0
+
+[node name="FirePipe" type="Node2D"]
+script = ExtResource("1_firepipe")
+
+[node name="TopPipe" type="Area2D" parent="."]
+position = Vector2(0, -280)
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="TopPipe"]
+texture = ExtResource("2_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe"]
+shape = SubResource("RectangleShape2D_pipe")
+
+[node name="BottomPipe" type="Area2D" parent="."]
+position = Vector2(0, 280)
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomPipe"]
+texture = ExtResource("2_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe"]
+shape = SubResource("RectangleShape2D_pipe")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+shape = SubResource("RectangleShape2D_score")
+
+[node name="FireHazard" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="FireHazard"]
+texture = ExtResource("3_fire")
+
+[node name="PointLight2D" type="PointLight2D" parent="FireHazard"]
+texture = ExtResource("4_light")
+color = Color(1, 0.5, 0, 1)
+energy = 2.0
+texture_scale = 2.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="FireHazard"]
+amount = 32
+lifetime = 1.0
+texture = ExtResource("4_light")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, -98)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+color = Color(1, 0.5, 0, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireHazard"]
+shape = SubResource("CapsuleShape2D_fire")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 0)
+scale = Vector2(3, 24)
+
+[connection signal="body_entered" from="TopPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="BottomPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
+[connection signal="body_entered" from="FireHazard" to="." method="_on_fire_hazard_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

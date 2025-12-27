@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://c8qj8qj8qj8q"]
+[gd_scene load_steps=6 format=3 uid="uid://c8qj8qj8qj8q"]
+
+[ext_resource type="Script" uid="uid://bvipunlmh1idl" path="res://src/levels/PipeSpawner.gd" id="1_spawner"]
+[ext_resource type="PackedScene" uid="uid://birdactor" path="res://src/actors/Bird.tscn" id="2_bird"]
+[ext_resource type="PackedScene" uid="uid://cxhkbys1wuo2q" path="res://src/levels/Background.tscn" id="3_bg"]
+[ext_resource type="Script" uid="uid://b68hiu6idndb8" path="res://src/levels/DayNightCycle.gd" id="4_cycle"]
+[ext_resource type="PackedScene" path="res://src/levels/WorldEnvironment.tscn" id="5_env"]
+[ext_resource type="PackedScene" path="res://src/ui/MainMenu.tscn" id="6_menu"]
+[ext_resource type="PackedScene" path="res://src/ui/HUD.tscn" id="7_hud"]
+[ext_resource type="PackedScene" path="res://src/ui/GameOver.tscn" id="8_over"]
+[ext_resource type="PackedScene" path="res://src/core/AudioManager.tscn" id="9_audio"]
 
 [node name="Main" type="Node2D"]
+
+[node name="DayNightCycle" type="CanvasModulate" parent="."]
+script = ExtResource("4_cycle")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("5_env")]
+
+[node name="Background" parent="." instance=ExtResource("3_bg")]
+
+[node name="Bird" parent="." instance=ExtResource("2_bird")]
+position = Vector2(225, 303)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="PipeSpawner" type="Node" parent="."]
+script = ExtResource("1_spawner")
+
+[node name="MainMenu" parent="." instance=ExtResource("6_menu")]
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]
+
+[node name="GameOver" parent="." instance=ExtResource("8_over")]
+
+[node name="AudioManager" parent="." instance=ExtResource("9_audio")]

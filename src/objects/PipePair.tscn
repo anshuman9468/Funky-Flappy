@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://pipepair"]
+
+[ext_resource type="Script" path="res://src/objects/PipePair.gd" id="1_pipe"]
+[ext_resource type="Texture2D" path="res://assets/sprites/pipe.svg" id="2_sprite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pipe"]
+size = Vector2(60, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_score"]
+size = Vector2(20, 160)
+
+[node name="PipePair" type="Node2D"]
+script = ExtResource("1_pipe")
+
+[node name="TopPipe" type="Area2D" parent="."]
+position = Vector2(0, -280)
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="TopPipe"]
+texture = ExtResource("2_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe"]
+shape = SubResource("RectangleShape2D_pipe")
+
+[node name="BottomPipe" type="Area2D" parent="."]
+position = Vector2(0, 280)
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomPipe"]
+texture = ExtResource("2_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe"]
+shape = SubResource("RectangleShape2D_pipe")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+shape = SubResource("RectangleShape2D_score")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 0)
+scale = Vector2(3, 24)
+
+[connection signal="body_entered" from="TopPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="BottomPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

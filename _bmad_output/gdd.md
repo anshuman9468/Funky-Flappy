@@ -315,7 +315,7 @@ The goal is to make the game feel "juicy" and "premium" - proving that a web gam
 ### Epic Structure
 
 1.  **Core Engine & Physics:**
-    *   Project Setup (Godot 4.x).
+    *   Project Setup (Godot 4.5).
     *   Game Loop & State Management (Godot Lifecycle).
     *   Bird Controller (CharacterBody2D, Variable Flap).
     *   Input System Implementation (InputMap).
@@ -365,4 +365,4 @@ The goal is to make the game feel "juicy" and "premium" - proving that a web gam
 
 *   User has a modern web browser with WebGL 2.0 support.
 *   User has a modern web browser with WebGL 2.0 support.
-*   Development will focus on Godot 4.x (Stable).
+*   Development will focus on Godot 4.5 (Stable).

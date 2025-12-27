@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-**Funky Flappy** is a high-fidelity Action Platformer evolving the classic Flappy Bird formula with elemental strategy and premium visuals. The project uses **Godot 4.x** with **GDScript** to achieve a lightweight, performant WebGL build.
+**Funky Flappy** is a high-fidelity Action Platformer evolving the classic Flappy Bird formula with elemental strategy and premium visuals. The project uses **Godot 4.5** with **GDScript** to achieve a lightweight, performant WebGL build.
 
 The architecture follows a **Node-based Composition** pattern typical of Godot. Core systems (Game, Audio) use **Autoloads (Singletons)** for global access. The game leverages Godot's **Signals** for decoupled event handling and **Resources** for data management (Bird stats, Skins).
 
@@ -10,7 +10,7 @@ The architecture follows a **Node-based Composition** pattern typical of Godot. 
 
 | Category | Decision | Version | Affects Epics | Rationale |
 | -------- | -------- | ------- | ------------- | --------- |
-| **Engine** | Godot | 4.x | All | Lightweight WebGL export, dedicated 2D engine. |
+| **Engine** | Godot | 4.5 | All | Lightweight WebGL export, dedicated 2D engine. |
 | **Language** | GDScript | 2.0 | All | Native integration, fast iteration, ideal for 2D. |
 | **Input** | InputMap | N/A | Core Engine | Built-in action mapping for Keyboard/Touch. |
 | **Architecture** | Autoloads + Signals | N/A | Core Engine | Godot standard for global state and event decoupling. |
@@ -49,7 +49,7 @@ res://
 ## Technology Stack Details
 
 ### Core Technologies
--   **Engine**: Godot 4.x
+-   **Engine**: Godot 4.5
 -   **Language**: GDScript
 -   **Renderer**: Compatibility (OpenGL ES 3.0) for best Web support, or Forward+ if WebGL 2.0 strictly targeted.
 
@@ -92,7 +92,7 @@ res://
 ## Development Environment
 
 ### Prerequisites
--   Godot 4.x Executable
+-   Godot 4.5 Executable
 -   VS Code (with Godot Tools) or Built-in Editor
 
 ### Setup Commands
